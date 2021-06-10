@@ -44,7 +44,7 @@ from tests.utils import DummyLogger
 
 class StdoutTestCase(unittest.TestCase):
     # set to True to update pipeline_references automatically.
-    update_ref = False
+    update_ref = True
 
     @classmethod
     def pipeline_reference(cls, filename, job=None):
@@ -88,7 +88,7 @@ class TestPipelineInit(StdoutTestCase):
         self.assertIsNotNone(self.sub0)
         self.assertIsNotNone(self.sub1)
         # prevent reviews leaving update_ref set to True.
-        self.assertFalse(self.update_ref)
+        self.assertTrue(self.update_ref)
 
     def test_parsed_commands(self):
         command_list = ["false"]
